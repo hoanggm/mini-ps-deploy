@@ -5,7 +5,7 @@ cd docker/
 ```
 
 ```bash 
-docker compose -p minicache-pubsub up -d
+docker compose -p mini-pubsub up -d
 ```
 
 2. Spring Boot Integration
