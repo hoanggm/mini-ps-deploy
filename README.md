@@ -14,7 +14,7 @@ docker compose -p mini-pubsub up -d
 <dependency>
     <groupId>io.github.hoanggm</groupId>
     <artifactId>minipubsub-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
