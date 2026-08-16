@@ -12,7 +12,7 @@ docker compose -p mini-pubsub up -d
 
 ```java
 <dependency>
-    <groupId>org.mini.pubsub</groupId>
+    <groupId>io.github.hoanggm</groupId>
     <artifactId>minipubsub-client</artifactId>
     <version>1.0.0</version>
 </dependency>
