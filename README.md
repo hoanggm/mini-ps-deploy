@@ -97,7 +97,7 @@ public class MiniPubSubListenerProcessor implements BeanPostProcessor {
 
 ```java
 @PubSubListener(topic = "notifications")
-public void onPaymentSuccess(byte[] payload) {
+public void onMessage(byte[] payload) {
     String data = new String(payload, StandardCharsets.UTF_8);
     System.out.println(data);
 }
