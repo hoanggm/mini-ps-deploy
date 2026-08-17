@@ -19,8 +19,7 @@ docker compose -p mini-pubsub-service up -d
 ```
 
 ```java
-mini.pubsub.server.host=127.0.0.1
-mini.pubsub.server.port=9809
+mini.pubsub.server.cluster=127.0.0.1:9801,127.0.0.1:9802,127.0.0.1:9803
 mini.pubsub.server.connect-timeout-ms=5000
 mini.pubsub.server.auto-reconnect=true
 ```
