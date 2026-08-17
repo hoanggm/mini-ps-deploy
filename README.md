@@ -5,7 +5,7 @@ cd docker/
 ```
 
 ```bash 
-docker compose -p mini-pubsub up -d
+docker compose -p mini-pubsub-service up -d
 ```
 
 2. Spring Boot Integration
@@ -14,7 +14,7 @@ docker compose -p mini-pubsub up -d
 <dependency>
     <groupId>io.github.hoanggm</groupId>
     <artifactId>minipubsub-client</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -30,11 +30,8 @@ mini.pubsub.server.auto-reconnect=true
 ```java
 @Configuration
 public class MiniPubSubConfig {
-    @Value("${mini.pubsub.server.host}")
-    private String host;
-
-    @Value("${mini.pubsub.server.port}")
-    private int port;
+    @Value("${mini.pubsub.server.cluster}")
+    private String cluster;
 
     @Value("${mini.pubsub.server.connect-timeout-ms:5000}")
     private int connectTimeoutMs;
@@ -44,8 +41,9 @@ public class MiniPubSubConfig {
 
     @Bean(destroyMethod = "close")
     public PubSubClient pubSubClient() throws InterruptedException {
-        ClientConfig config = new ClientConfig(host, port, connectTimeoutMs, autoReconnect);
-        PubSubClient client = new PubSubClient(config);
+        PubSubClient client = new PubSubClient(
+                new ClientConfig(cluster, connectTimeoutMs, autoReconnect)
+        );
 
         client.connect();
         return client;
